@@ -1,0 +1,14 @@
+---
+- name: Clean all packages
+  shell: rm {{ item }} || true
+  ignore_errors: yes
+  with_items:
+    - /var/cache/apt/*.bin
+    - /var/cache/apt/archives/*.deb
+    - /var/cache/apt/archives/partial/*
+    - /var/lib/apt/lists/*
+
+- name: Remove proxy settings
+  file:
+    path=/etc/apt/apt.conf.d/01proxy
+    state=absent

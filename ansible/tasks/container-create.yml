@@ -1,0 +1,23 @@
+---
+- name: Stop outdated container {{ image_new }}
+  docker_container:
+    name: '{{ image_new }}'
+    image: '{{ image_new }}'
+    state: stopped
+
+- name: Purge outdated container {{ image_new }}
+  docker_container:
+    name: '{{ image_new }}'
+    image: '{{ image_new }}'
+    state: absent
+
+- name: Create docker container {{ image_new }} from {{ image_source }}
+  docker_container:
+    name: '{{ image_new }}'
+    image: '{{ image_source }}'
+    state: started
+    interactive: True
+    tty: True
+    command: '{{ image_cmd | default(omit) }}'
+    volumes: '{{ volumes | default(omit) }}'
+    links: '{{ links | default(omit) }}'

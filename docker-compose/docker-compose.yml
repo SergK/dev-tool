@@ -1,0 +1,16 @@
+version: '2'
+services:
+  db:
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    container_name: dev-tool-db
+    image: dev-tool-db:latest
+    volumes:
+      - /srv/mysql/db:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+# networks:
+#   default:
+#     external:
+#       name: dev-net

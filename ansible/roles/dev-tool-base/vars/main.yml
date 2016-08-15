@@ -1,0 +1,5 @@
+---
+image_new: "dev-tool-base"
+image_source: "debian:jessie"
+
+docker_cmd: ""

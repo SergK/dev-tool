@@ -1,0 +1,4 @@
+---
+- name: Stop tempdb mysql database
+  command: mysqladmin -uroot -p"{{ mysql.root.password }}" shutdown
+  ignore_errors: yes

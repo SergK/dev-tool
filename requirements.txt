@@ -1,0 +1,6 @@
+ansible==2.1.0
+ansible-lint
+docker-py>=1.7.0
+docker-compose
+requests==2.7.0
+setuptools>=11.3

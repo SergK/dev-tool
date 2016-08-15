@@ -1,0 +1,11 @@
+---
+- name: launch temporary db instance
+  docker_container:
+    name: tempdb
+    image: dev-tool-db:latest
+    volumes:
+      - /srv/mysql/db:/var/lib/mysql
+    env:
+      MYSQL_ROOT_PASSWORD: "{{ mysql.root.password }}"
+    ports:
+      - "3306:3306"

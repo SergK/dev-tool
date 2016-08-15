@@ -1,0 +1,9 @@
+---
+#
+# Global configuration for mysql service
+#
+
+mysql:
+  root:
+    user: root
+    password: root

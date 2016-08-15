@@ -1,0 +1,5 @@
+---
+image_new: "dev-tool-db"
+image_source: "dev-tool-base"
+
+docker_cmd: "/usr/local/sbin/init_mysql.sh"

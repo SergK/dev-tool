@@ -1,0 +1,19 @@
+---
+- hosts: dev-tool-base
+  gather_facts: no
+  connection: docker
+
+  # use raw to install python first, which required by ansible
+  pre_tasks:
+    - include: tasks/container-create.yml ansible_connection=local
+    - name: Update repository
+      raw: apt-get update
+    - name: Basic packages required by ansible
+      raw: apt-get install -y python
+
+  roles:
+    - dev-tool-base
+
+  post_tasks:
+    - include: tasks/system-cleanup.yml
+    - include: tasks/container-commit.yml ansible_connection=local

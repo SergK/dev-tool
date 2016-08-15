@@ -1,0 +1,5 @@
+---
+- name: Remove tempdb container
+  docker_container:
+    name: tempdb
+    state: absent

@@ -1,0 +1,81 @@
+---
+- name: Create group with static GID 900
+  group:
+    name=mysql
+    gid=900
+- name: Create group with static GID 900
+  user:
+    name=mysql
+    uid=900
+    group=mysql
+    home=/nonexistent
+    shell=/bin/false
+    createhome=no
+
+- name: Prepare password answer
+  debconf:
+    name=mariadb-server-10.0
+    question='mysql-server/root_password'
+    value=temporary_pass
+    vtype='password'
+- name: Prepare password answer
+  debconf:
+    name=mariadb-server-10.0
+    question='mysql-server/root_password_again'
+    value=temporary_pass
+    vtype='password'
+
+- name: Install packages required by mysql
+  apt:
+    name={{ item }}
+    state=latest
+    install_recommends=no
+  with_items:
+    - mariadb-server
+
+- name: Stop mysql
+  service:
+    name=mysql
+    state=stopped
+
+- name: Remove mysql database directory, it will be initialized on container start
+  file:
+    path=/var/lib/mysql
+    state=absent
+
+- name: Create empty directory as a mount point for volume with databases
+  file:
+    path=/var/lib/mysql
+    state=directory
+    mode=0700
+    owner=mysql
+    group=mysql
+
+- name: Create directory to store pid and socket files
+  file:
+    path=/var/run/mysqld
+    state=directory
+    mode=0700
+    owner=mysql
+    group=mysql
+
+- name: Add mysql configuration
+  copy:
+    src=files/default.cnf
+    dest=/etc/mysql/conf.d/default.cnf
+    owner=root
+    group=root
+    mode=0644
+
+- name: Remove debian syslog config
+  file:
+    path=/etc/mysql/conf.d/mysqld_safe_syslog.cnf
+    state=absent
+
+- name: Create init script
+  copy:
+    src=files/init.sh
+    dest=/usr/local/sbin/init_mysql.sh
+    owner=root
+    group=root
+    mode=0700
