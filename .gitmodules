@@ -1,0 +1,3 @@
+[submodule "ansible/roles/debops.php5"]
+	path = ansible/roles/debops.php5
+	url = https://github.com/debops/ansible-php5/
