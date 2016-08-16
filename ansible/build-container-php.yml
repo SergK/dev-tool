@@ -1,0 +1,18 @@
+---
+- hosts: dev-tool-php
+  gather_facts: no
+  connection: docker
+
+  vars_files:
+    - vars/dev-tool-php.yml
+
+  pre_tasks:
+    - include: tasks/container-create.yml ansible_connection=local
+    - include: tasks/apt-update.yml
+
+  roles:
+    - dev-tool-php
+
+  post_tasks:
+    - include: tasks/system-cleanup.yml
+    - include: tasks/container-commit.yml ansible_connection=local

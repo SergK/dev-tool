@@ -1,0 +1,5 @@
+---
+image_new: "dev-tool-php"
+image_source: "dev-tool-base"
+
+docker_cmd: "/usr/sbin/php5-fpm --nodaemonize --fpm-config /etc/php5/fpm/php-fpm.conf"

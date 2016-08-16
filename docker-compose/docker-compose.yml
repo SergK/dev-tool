@@ -9,6 +9,11 @@ services:
       - /srv/mysql/db:/var/lib/mysql
     ports:
       - "3306:3306"
+  php:
+    container_name: dev-tool-php
+    image: dev-tool-php:latest
+    ports:
+      - "9000:9000"
 
 # networks:
 #   default:
