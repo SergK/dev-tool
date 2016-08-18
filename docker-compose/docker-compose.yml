@@ -15,6 +15,12 @@ services:
     ports:
       - "9000:9000"
 
+  memcached:
+    container_name: dev-tool-memcached
+    image: dev-tool-memcached:latest
+    ports:
+      - "11211:11211"
+
 # networks:
 #   default:
 #     external:
