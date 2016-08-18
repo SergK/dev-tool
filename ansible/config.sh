@@ -3,6 +3,8 @@ CONTAINER_LIST=(
     "db"
     "php"
     "memcached"
+    "redis"
+    "sphinx"
 )
 
 # Default verbose level

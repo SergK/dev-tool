@@ -1,0 +1,15 @@
+---
+- hosts: dev-tool-sphinx
+  gather_facts: no
+  connection: docker
+
+  pre_tasks:
+    - include: tasks/container-create.yml ansible_connection=local
+    - include: tasks/apt-update.yml
+
+  roles:
+    - dev-tool-sphinx
+
+  post_tasks:
+    - include: tasks/system-cleanup.yml
+    - include: tasks/container-commit.yml ansible_connection=local

@@ -1,0 +1,6 @@
+---
+- name: Add backports repository for Jessie release
+  apt_repository: repo="deb http://ftp.debian.org/debian jessie-backports main" state=present
+
+- name: Install the sphinx package
+  apt: name=sphinxsearch state=present update_cache=yes
