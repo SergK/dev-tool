@@ -9,5 +9,5 @@ done
 
 # Remove all images
 for NAME in ${CONTAINER_LIST[@]}; do
-    docker rmi "dev-tool-$NAME"
+    docker rmi "sergk/dev-tool-$NAME"
 done

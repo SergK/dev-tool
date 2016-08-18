@@ -1,15 +1,15 @@
 ---
-- name: Remove old image {{ image_new }}
+- name: Remove old image sergk/{{ image_new }}
   docker_image:
-    name: '{{ image_new }}'
+    name: 'sergk/{{ image_new }}'
     state: absent
 
 - name: Commit {{ image_new }} container to image with CMD "{{ docker_cmd }}"
-  command: docker commit -c="CMD {{ docker_cmd }}" '{{ image_new }}' '{{ image_new }}'
+  command: docker commit -c="CMD {{ docker_cmd }}" '{{ image_new }}' 'sergk/{{ image_new }}'
   when: docker_cmd != ''
 
 - name: Commit {{ image_new }} container to image without CMD
-  command: docker commit '{{ image_new }}' '{{ image_new }}'
+  command: docker commit '{{ image_new }}' 'sergk/{{ image_new }}'
   when: docker_cmd == ''
 
 - name: Remove container {{ image_new }}

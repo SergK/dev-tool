@@ -11,10 +11,10 @@
     image: '{{ image_new }}'
     state: absent
 
-- name: Create docker container {{ image_new }} from {{ image_source }}
+- name: Create docker container {{ image_new }} from sergk/{{ image_source }}
   docker_container:
     name: '{{ image_new }}'
-    image: '{{ image_source }}'
+    image: 'sergk/{{ image_source }}'
     state: started
     interactive: True
     tty: True

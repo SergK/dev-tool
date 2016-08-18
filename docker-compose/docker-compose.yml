@@ -5,7 +5,7 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=root
     container_name: dev-tool-db
-    image: dev-tool-db:latest
+    image: sergk/dev-tool-db:latest
     volumes:
       - /srv/mysql/db:/var/lib/mysql
     ports:
@@ -13,7 +13,7 @@ services:
 
   php:
     container_name: dev-tool-php
-    image: dev-tool-php:latest
+    image: sergk/dev-tool-php:latest
     volumes:
       - /srv/www:/www
     ports:
@@ -21,26 +21,26 @@ services:
 
   memcached:
     container_name: dev-tool-memcached
-    image: dev-tool-memcached:latest
+    image: sergk/dev-tool-memcached:latest
     ports:
       - "11211:11211"
 
   redis:
     container_name: dev-tool-redis
-    image: dev-tool-redis:latest
+    image: sergk/dev-tool-redis:latest
     ports:
       - "6379:6379"
 
   sphinx:
     container_name: dev-tool-sphinx
-    image: dev-tool-sphinx:latest
+    image: sergk/dev-tool-sphinx:latest
     ports:
       - "9312:9312"
       - "9306:9306"
 
   nginx:
     container_name: dev-tool-nginx
-    image: dev-tool-nginx:latest
+    image: sergk/dev-tool-nginx:latest
     depends_on:
       - php
     volumes:
