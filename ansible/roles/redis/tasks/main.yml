@@ -1,0 +1,6 @@
+---
+- name: Install the redis-server packages
+  apt: name=redis-server state=present update_cache=yes
+
+- name: stop the redis-server service
+  service: name=redis-server state=stopped enabled=yes

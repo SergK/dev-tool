@@ -3,3 +3,4 @@ dev-tool-base ansible_user=root ansible_connection=docker
 dev-tool-db ansible_user=root ansible_connection=docker
 dev-tool-php ansible_user=root ansible_connection=docker
 dev-tool-memcached ansible_user=root ansible_connection=docker
+dev-tool-redis ansible_user=root ansible_connection=docker

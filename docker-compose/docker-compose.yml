@@ -1,5 +1,6 @@
 version: '2'
 services:
+
   db:
     environment:
       - MYSQL_ROOT_PASSWORD=root
@@ -9,6 +10,7 @@ services:
       - /srv/mysql/db:/var/lib/mysql
     ports:
       - "3306:3306"
+
   php:
     container_name: dev-tool-php
     image: dev-tool-php:latest
@@ -21,6 +23,11 @@ services:
     ports:
       - "11211:11211"
 
+  redis:
+    container_name: dev-tool-redis
+    image: dev-tool-redis:latest
+    ports:
+      - "6379:6379"
 # networks:
 #   default:
 #     external:
