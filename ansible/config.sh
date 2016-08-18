@@ -5,6 +5,7 @@ CONTAINER_LIST=(
     "memcached"
     "redis"
     "sphinx"
+    "nginx"
 )
 
 # Default verbose level

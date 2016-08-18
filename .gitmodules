@@ -1,3 +1,6 @@
 [submodule "ansible/roles/debops.php5"]
 	path = ansible/roles/debops.php5
 	url = https://github.com/debops/ansible-php5/
+[submodule "ansible/roles/geerlingguy.nginx"]
+	path = ansible/roles/geerlingguy.nginx
+	url = https://github.com/geerlingguy/ansible-role-nginx

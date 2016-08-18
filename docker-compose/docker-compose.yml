@@ -14,6 +14,8 @@ services:
   php:
     container_name: dev-tool-php
     image: dev-tool-php:latest
+    volumes:
+      - /srv/www:/www
     ports:
       - "9000:9000"
 
@@ -35,6 +37,17 @@ services:
     ports:
       - "9312:9312"
       - "9306:9306"
+
+  nginx:
+    container_name: dev-tool-nginx
+    image: dev-tool-nginx:latest
+    depends_on:
+      - php
+    volumes:
+      - /srv/www:/www
+      - /srv/logs/nginx:/var/log/nginx
+    ports:
+      - "80:80"
 
 # networks:
 #   default:

@@ -1,0 +1,5 @@
+---
+image_new: "dev-tool-nginx"
+image_source: "dev-tool-base"
+
+docker_cmd: "nginx -g 'daemon off;'"
