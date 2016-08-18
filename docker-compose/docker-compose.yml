@@ -29,7 +29,7 @@ services:
     ports:
       - "6379:6379"
 
-  redis:
+  sphinx:
     container_name: dev-tool-sphinx
     image: dev-tool-sphinx:latest
     ports:
