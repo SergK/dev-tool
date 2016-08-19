@@ -15,4 +15,5 @@
 
   post_tasks:
     - include: tasks/system-cleanup.yml
+    - include: tasks/create-www-root.yml
     - include: tasks/container-commit.yml ansible_connection=local

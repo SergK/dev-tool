@@ -1,0 +1,8 @@
+---
+- name: Create empty directory as a mount point for volume with www root
+  file:
+    path=/www
+    state=directory
+    mode=0775
+    owner=www-data
+    group=www-data
