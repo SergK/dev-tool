@@ -49,7 +49,7 @@ services:
     ports:
       - "80:80"
 
-# networks:
-#   default:
-#     external:
-#       name: dev-net
+networks:
+  default:
+    external:
+      name: dev-net
