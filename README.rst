@@ -64,7 +64,7 @@ format is: *service-name-inside-container: PORT*
 * sphinx: 9312 and 9306
 
 for example, if you need to address from your php application database, you need to
-point *database_hostname: db*, for example:
+point database hostname: *db*, for example:
 
 ::
 
@@ -88,6 +88,7 @@ To *start* the services you need activate virtualenv:
 Start the services:
 
     cd dev-tool/docker-compose
+
     ./start_all.sh
 
 To stop the services, do the same as above, but:
