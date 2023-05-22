@@ -2,5 +2,5 @@ ansible==7.0.0
 ansible-lint
 docker-py>=1.7.0
 docker-compose
-requests==2.20.0
+requests==2.31.0
 setuptools>=11.3
